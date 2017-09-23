@@ -1,0 +1,100 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/ChimeraCoder/anaconda",
+			"repository": "https://github.com/ChimeraCoder/anaconda",
+			"revision": "b2574bf45ceab73b763dc5e411b25d4ee046f1ac",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/ChimeraCoder/tokenbucket",
+			"repository": "https://github.com/ChimeraCoder/tokenbucket",
+			"revision": "c5a927568de7aad8a58127d80bcd36ca4e71e454",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/azr/backoff",
+			"repository": "https://github.com/azr/backoff",
+			"revision": "53511d3c733003985b0b76f733df1f4d0095ee6a",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/constabulary/gb",
+			"repository": "https://github.com/constabulary/gb",
+			"revision": "f11784c79acf8d0c0a516774585aed66dc0dc439",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/constabulary/gb/cmd/gb",
+			"repository": "https://github.com/constabulary/gb",
+			"revision": "f11784c79acf8d0c0a516774585aed66dc0dc439",
+			"branch": "master",
+			"path": "/cmd/gb"
+		},
+		{
+			"importpath": "github.com/dustin/go-jsonpointer",
+			"repository": "https://github.com/dustin/go-jsonpointer",
+			"revision": "ba0abeacc3dcca5b9b20f31509c46794edbc9965",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/dustin/gojson",
+			"repository": "https://github.com/dustin/gojson",
+			"revision": "2e71ec9dd5adce3b168cd0dbde03b5cc04951c30",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/garyburd/go-oauth/examples/session",
+			"repository": "https://github.com/garyburd/go-oauth",
+			"revision": "166ce8d672783fbb5a72247c3cf459267717e1ec",
+			"branch": "master",
+			"path": "/examples/session"
+		},
+		{
+			"importpath": "github.com/garyburd/go-oauth/oauth",
+			"repository": "https://github.com/garyburd/go-oauth",
+			"revision": "166ce8d672783fbb5a72247c3cf459267717e1ec",
+			"branch": "master",
+			"path": "/oauth"
+		},
+		{
+			"importpath": "github.com/go-telegram-bot-api/telegram-bot-api",
+			"repository": "https://github.com/go-telegram-bot-api/telegram-bot-api",
+			"revision": "9dda67c714e5e2cba837b28a0172cca2ed54f078",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/golang/protobuf/proto",
+			"repository": "https://github.com/golang/protobuf",
+			"revision": "130e6b02ab059e7b717a096f397c5b60111cae74",
+			"branch": "master",
+			"path": "/proto"
+		},
+		{
+			"importpath": "github.com/pkg/errors",
+			"repository": "https://github.com/pkg/errors",
+			"revision": "2b3a18b5f0fb6b4f9190549597d3f962c02bc5eb",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/technoweenie/multipartstreamer",
+			"repository": "https://github.com/technoweenie/multipartstreamer",
+			"revision": "a90a01d73ae432e2611d178c18367fbaa13e0154",
+			"branch": "master"
+		},
+		{
+			"importpath": "golang.org/x/net/context",
+			"repository": "https://go.googlesource.com/net",
+			"revision": "0744d001aa8470aaa53df28d32e5ceeb8af9bd70",
+			"branch": "master",
+			"path": "/context"
+		},
+		{
+			"importpath": "google.golang.org/appengine",
+			"repository": "https://github.com/golang/appengine",
+			"revision": "24e4144ec923c2374f6b06610c0df16a9222c3d9",
+			"branch": "master"
+		}
+	]
+}
