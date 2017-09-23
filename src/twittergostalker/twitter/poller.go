@@ -62,6 +62,10 @@ func (this *Poller) Routine() {
 			return
 		}
 
+		if user.Status == nil {
+			continue
+		}
+
 		if this.currTweetId != user.Status.Id {
 			this.currTweetId = user.Status.Id
 			log.Printf("twitter: got a new tweet from @%s: %s\n",
