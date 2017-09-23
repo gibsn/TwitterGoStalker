@@ -21,5 +21,5 @@ func main() {
 	stalker := stalker.NewStalker(cfg)
 	stalker.Init()
 
-	stalker.Loop()
+	stalker.Routine()
 }

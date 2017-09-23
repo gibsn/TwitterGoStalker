@@ -13,7 +13,8 @@ type Poller struct {
 	username string
 
 	api             *anaconda.TwitterApi
-	pollingInterval int
+	currTweetId     int64
+	pollingInterval time.Duration
 
 	consumerKey    string
 	consumerSecret string
@@ -32,6 +33,7 @@ func NewPoller(cfg *config.Config) *Poller {
 		consumerSecret:  cfg.TwitterConsumerSecret,
 		accessToken:     cfg.TwitterAccessToken,
 		accessSecret:    cfg.TwitterAccessSecret,
+		TweetsChan:      make(chan string),
 	}
 }
 
@@ -51,7 +53,6 @@ func (this *Poller) Init() {
 
 func (this *Poller) Routine() {
 	log.Printf("twitter: polling @%s\n", this.username)
-	currTweetId := int64(0)
 
 	for {
 		user, err := this.api.GetUsersShow(this.username, nil)
@@ -61,15 +62,15 @@ func (this *Poller) Routine() {
 			return
 		}
 
-		if currTweetId != user.Status.Id {
-			currTweetId = user.Status.Id
-			log.Printf("twitter: got a new tweet from %s: %s\n",
+		if this.currTweetId != user.Status.Id {
+			this.currTweetId = user.Status.Id
+			log.Printf("twitter: got a new tweet from @%s: %s\n",
 				this.username, user.Status.FullText)
 
-			msg := this.username + ":\n" + user.Status.FullText
+			msg := "@" + this.username + ":\n" + user.Status.FullText
 			this.TweetsChan <- msg
 		}
 
-		time.Sleep(time.Second * time.Duration(this.pollingInterval))
+		time.Sleep(time.Second * this.pollingInterval)
 	}
 }

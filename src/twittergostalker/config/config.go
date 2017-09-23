@@ -4,11 +4,12 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"time"
 )
 
 type Config struct {
 	UserName        string
-	PollingInterval int
+	PollingInterval time.Duration
 
 	TwitterConsumerKey    string
 	TwitterConsumerSecret string

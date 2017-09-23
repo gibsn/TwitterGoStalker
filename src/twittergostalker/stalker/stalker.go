@@ -28,7 +28,7 @@ func (this *Stalker) Init() {
 	this.bot.Init()
 }
 
-func (this *Stalker) Loop() {
+func (this *Stalker) Routine() {
 	go this.poller.Routine()
 	go this.bot.Routine()
 
