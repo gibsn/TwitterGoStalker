@@ -57,6 +57,8 @@ func (this *Bot) Routine() {
 		log.Printf("telegram: @%s: %s", update.Message.From.UserName, update.Message.Text)
 
 		switch update.Message.Text {
+		case "/ping":
+			this.ping(&update)
 		case "/stalk":
 			this.stalk(&update)
 		case "/unstalk":
@@ -66,6 +68,12 @@ func (this *Bot) Routine() {
 				update.Message.Text, update.Message.From.UserName)
 		}
 	}
+}
+
+func (this *Bot) ping(update *telegram.Update) {
+	log.Printf("telegram: responding 'pong' to @%s\n", update.Message.From.UserName)
+	msg := telegram.NewMessage(update.Message.Chat.ID, "pong")
+	this.bot.Send(msg)
 }
 
 func (this *Bot) stalk(update *telegram.Update) {
