@@ -4,6 +4,7 @@ import (
 	"flag"
 	"time"
 
+	"twittergostalker/config"
 	"twittergostalker/stalker"
 )
 
@@ -12,10 +13,12 @@ const (
 )
 
 func main() {
-	username := flag.String("u", "", "user to stalker")
+	pathToCfg := flag.String("c", "cfg.json", "path to config")
 	flag.Parse()
 
-	stalker := stalker.NewStalker(*username, pollingInterval)
+	cfg := config.Parse(*pathToCfg)
+
+	stalker := stalker.NewStalker(cfg)
 	stalker.Init()
 
 	stalker.Loop()

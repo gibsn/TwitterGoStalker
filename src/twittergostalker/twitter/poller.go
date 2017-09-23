@@ -5,13 +5,15 @@ import (
 	"time"
 
 	"github.com/ChimeraCoder/anaconda"
+
+	"twittergostalker/config"
 )
 
 type Poller struct {
 	username string
 
 	api             *anaconda.TwitterApi
-	pollingInterval time.Duration
+	pollingInterval int
 
 	consumerKey    string
 	consumerSecret string
@@ -22,10 +24,14 @@ type Poller struct {
 	TweetsChan chan string
 }
 
-func NewPoller(username string, pollingInterval time.Duration) *Poller {
+func NewPoller(cfg *config.Config) *Poller {
 	return &Poller{
-		username:        username,
-		pollingInterval: pollingInterval,
+		username:        cfg.UserName,
+		pollingInterval: cfg.PollingInterval,
+		consumerKey:     cfg.TwitterConsumerKey,
+		consumerSecret:  cfg.TwitterConsumerSecret,
+		accessToken:     cfg.TwitterAccessToken,
+		accessSecret:    cfg.TwitterAccessSecret,
 	}
 }
 
@@ -44,7 +50,7 @@ func (this *Poller) Init() {
 }
 
 func (this *Poller) Routine() {
-	log.Println("twitter: polling @%s", this.username)
+	log.Printf("twitter: polling @%s\n", this.username)
 	currTweetId := int64(0)
 
 	for {
@@ -64,6 +70,6 @@ func (this *Poller) Routine() {
 			this.TweetsChan <- msg
 		}
 
-		time.Sleep(this.pollingInterval)
+		time.Sleep(time.Second * time.Duration(this.pollingInterval))
 	}
 }

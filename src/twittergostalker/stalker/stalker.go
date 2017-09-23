@@ -2,8 +2,8 @@ package stalker
 
 import (
 	"log"
-	"time"
 
+	"twittergostalker/config"
 	"twittergostalker/telegram"
 	"twittergostalker/twitter"
 )
@@ -15,10 +15,11 @@ type Stalker struct {
 	bot    *telegram.Bot
 }
 
-func NewStalker(username string, pollingInterval time.Duration) *Stalker {
+func NewStalker(cfg *config.Config) *Stalker {
 	return &Stalker{
-		username: username,
-		bot:      telegram.NewBot(),
+		username: cfg.UserName,
+		poller:   twitter.NewPoller(cfg),
+		bot:      telegram.NewBot(cfg),
 	}
 }
 

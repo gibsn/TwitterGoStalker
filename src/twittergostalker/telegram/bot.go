@@ -4,6 +4,8 @@ import (
 	"log"
 
 	telegram "github.com/go-telegram-bot-api/telegram-bot-api"
+
+	"twittergostalker/config"
 )
 
 type Bot struct {
@@ -19,8 +21,10 @@ type Subscriber struct {
 	ChatID int64
 }
 
-func NewBot() *Bot {
-	return &Bot{}
+func NewBot(cfg *config.Config) *Bot {
+	return &Bot{
+		token: cfg.TelegramBotToken,
+	}
 }
 
 func (this *Bot) Init() {
